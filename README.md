@@ -1,8 +1,9 @@
 # INSTRUCTIONS
 
 ### Phase 1
- > build server js file
- > get a working local host connection
+ 
+> build server js file
+> get a working local host connection
 
 ### Phase 2
 
@@ -16,3 +17,7 @@
 > get route (api/notes) to return all notes
 > post route (api/note) to create a note
 > delete route (api/note) to delete a note
+
+### Reminder
+
+> **test at each phase**
