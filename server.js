@@ -17,48 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-//  Create .get routes
-    
-    // Return the index page
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/index.html"));
-});
-    
-// Return the notes page
-app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/index.html"));
-});
-
-// Create API get routes
-    //set up the notes
-app.get("/api/notes", function(req, res) {
-    //response to access notesDB variable in order to send to response.
-    res.json(notesDB);
-});
-
-// Create the API POST routes
-app.post('/api/notes', function(req, res) {
-    
-  var newNote = req.body;
-
-//   console.log(req.body)
-
-
-  // notesDB.push(newNote);
-  fs.appendFileSync('./db/db.json', JSON.stringify([newNote]));
-
-  console.log(newNote)
-
-
-  // res.json(newNote);
-});
-
 // Create the API delete routes
-
+require ("./routes/apiRoutes")(app)
+require ("./routes/htmlRoutes")(app)
 
 
 
